@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros</title>
+</head>
+
+<body>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                    <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Opciones</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in carros %}
+                    <tr>
+                        <td>{{ c.marca }}</td>
+                        <td>{{ c.modelo }}</td>
+                        <td>{{ c.color }}</td>
+                        <td><Button onclick="location.href='/carro/{c.ID}}'">Editar</Button></td>
+                        <td><Button onclick="location.href='/borrarCarro/{c.ID}}'">Eliminar</Button></td>
+                    </tr>
+    
+                {% endfor %}
+            </tbody>
+    </div>
+    <div>   
+        <button onclick="location.href='/carros/crear'">Generar nuevo carro</button>
+    </div>
+</body>
+</html>
