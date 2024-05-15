@@ -24,8 +24,8 @@
                         <td>{{ c.marca }}</td>
                         <td>{{ c.modelo }}</td>
                         <td>{{ c.color }}</td>
-                        <td><Button onclick="location.href='/carro/{c.ID}}'">Editar</Button></td>
-                        <td><Button onclick="location.href='/borrarCarro/{c.ID}}'">Eliminar</Button></td>
+                        <td><Button onclick="location.href='/carro/{{c.ID}}'">Editar</Button></td>
+                        <td><Button onclick="location.href='/borrarCarro/{{c.ID}}'">Eliminar</Button></td>
                     </tr>
     
                 {% endfor %}

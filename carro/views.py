@@ -19,7 +19,7 @@ def formCar(request):
 
 def CarroId(request, Id):
     if request.method == 'GET':
-        car = Coche.objects.get(Id)
+        car = Coche.objects.get(ID=Id)
         return render(request, 'editarCarro.html', {'carro':car})
 
 def CrearCarro(request):
@@ -28,28 +28,26 @@ def CrearCarro(request):
         color = request.POST['color']
         modelo = request.POST['modelo']
         Carro = Coche.objects.create(marca=marca, color=color, modelo=modelo)
-        return redirect('carros')
+        return redirect('home')
     
-def ActualizarCarro(request):
+def ActualizarCarro(request, Id):
     if request.method == 'POST':
-        id = request.POST['id']
         marca = request.POST['marca']
         color = request.POST['color']
         modelo = request.POST['modelo']
         
-        Carro = Coche.objects.get(id=id)
+        Carro = Coche.objects.get(ID=Id)
         
         Carro.marca = marca
         Carro.color = color
         Carro.modelo = modelo
         Carro.save()
-        return redirect('carros')
+        return redirect('home')
 
 
-def BorrarCarro(request):
-    if request.method == 'POST':
-        id  = request.POST['id']
-        Carro=Coche.objects.get(id=id)
+def BorrarCarro(request,Id):
+    if request.method == 'GET':
+        Carro=Coche.objects.get(ID=Id)
         Carro.delete()
-        return redirect('carros')
+        return redirect('home')
     

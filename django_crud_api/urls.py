@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from carro import views
 
+app_name = "carro"
 urlpatterns = [
     path('admin/', admin.site.urls),               #URL Default de admin
-    path('carros', views.Carros),                     #vista principal para observar listado de carros
+    path('carros', views.Carros, name="home"),        #vista principal para observar listado de carros
     path('carros/crear', views.formCar),              #renderiza la vista del formulario para crear carro
-    path('carro/<int:Id>', views.CarroId),            #renderiza la vista para editar/seleccionar un carro
-    path('ActualizarCarro', views.ActualizarCarro),   #URL para actualizar un registro
+    path('carro/<Id>', views.CarroId),                 #renderiza la vista para editar/seleccionar un carro
+    path('ActualizarCarro<Id>', views.ActualizarCarro),   #URL para actualizar un registro
     path('carroNuevo', views.CrearCarro),             #URL para crear un registro
-    path('borrarCarro/<int:Id>', views.BorrarCarro)   #URL para eliminar un registro
+    path('borrarCarro/<Id>', views.BorrarCarro)   #URL para eliminar un registro
 
 ]

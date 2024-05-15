@@ -10,7 +10,7 @@
         <h2>Editar carro</h2>
         <div class="card">
             <div class="card-body">
-                <form action="/ActualizarCarro" method="POST">
+                <form action="/ActualizarCarro{{carro.ID}}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="marca">Marca</label>
